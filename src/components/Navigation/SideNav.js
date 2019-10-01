@@ -18,14 +18,22 @@ class SideNav extends React.Component {
 
   render() {
     const channelLinks = this.props.channels.map(channel => (
-      <ChannelNavLink key={channel.name} channel={channel} />
+      <ChannelNavLink
+        selectChannel={this.props.selectChannel}
+        key={channel.name}
+        channel={channel}
+      />
     ));
     {
       if (this.props.user) {
         return (
           <div>
             <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
-              <li className="nav-item" data-toggle="tooltip" data-placement="right">
+              <li
+                className="nav-item"
+                data-toggle="tooltip"
+                data-placement="right"
+              >
                 <Link className="nav-link heading" to="/createChannel">
                   <span className="nav-link-text mr-2">Channels</span>
                   <FontAwesomeIcon icon={faPlusCircle} />
@@ -54,16 +62,14 @@ class SideNav extends React.Component {
         );
       }
     }
-
   }
 }
 
 const mapStateToProps = state => {
   return {
     user: state.user,
-    channels: state.channels.channels,
-
-  }
+    channels: state.channels.channels
+  };
 };
 
 export default connect(mapStateToProps)(SideNav);

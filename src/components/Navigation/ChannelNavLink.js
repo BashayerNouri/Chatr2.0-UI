@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 
-const ChannelNavLink = ({ channel }) => {
+const ChannelNavLink = function Channel(props) {
+  const channel = props.channel;
   return (
     <li
       className="nav-item"
@@ -13,7 +14,7 @@ const ChannelNavLink = ({ channel }) => {
       data-placement="right"
       title={channel.name}
     >
-      <NavLink className="nav-link" to={`/channels/${channel.name}`}>
+      <NavLink className="nav-link" to={`/channels/${channel.id}`}>
         <FontAwesomeIcon icon={faHashtag} />
         <span className="nav-link-text"> {channel.name}</span>
       </NavLink>
