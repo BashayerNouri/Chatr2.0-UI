@@ -5,9 +5,6 @@ import * as actionTypes from "./actionTypes";
 
 import { setErrors, resetErrors } from "./errors";
 
-
-
-
 const setCurrentUser = token => {
   let user;
   if (token) {
@@ -37,9 +34,9 @@ export const login = (userData, history) => {
       dispatch(setCurrentUser(user.token));
       dispatch(resetErrors());
 
-      history.replace("/")
+      history.replace("/");
     } catch (error) {
-      console.log(error)
+      console.log(error);
       dispatch({
         type: actionTypes.SET_ERRORS,
         payload: error.response.data
@@ -48,7 +45,6 @@ export const login = (userData, history) => {
       // dispatch(setErrors(error.response.data));
       // console.error(error.response.data);
       // //must use setErrors
-
     }
   };
 };
@@ -64,11 +60,10 @@ export const signup = (userData, history) => {
       dispatch(setCurrentUser(user.token));
       dispatch(resetErrors());
 
-      history.replace("/")
+      history.replace("/");
     } catch (error) {
       //another possible solution for catching errors
       console.error(error.response.data);
-      console.log(error.response.data);
 
       dispatch(setErrors(error.response.data));
     }

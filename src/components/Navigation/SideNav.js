@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import SearchBar from "./SearchBar";
 
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,29 +15,46 @@ import {
 import ChannelNavLink from "./ChannelNavLink";
 
 class SideNav extends React.Component {
-  state = { collapsed: false };
+  state = {
+    collapsed: false,
+    query: ""
+  };
+
+  setQuery = query => this.setState({ query });
+
+  filterChannels = () => {
+    const query = this.state.query.toLowerCase();
+
+    return this.props.channels.filter(channel => {
+      return `${channel.name}`.toLowerCase().includes(query);
+    });
+  };
 
   render() {
-    const channelLinks = this.props.channels.map(channel => (
-      <ChannelNavLink
-        selectChannel={this.props.selectChannel}
-        key={channel.name}
-        channel={channel}
-      />
+    const channelLinks = this.props.filteredChannels.map(channel => (
+      <ChannelNavLink key={channel.name} channel={channel} />
     ));
     {
+      {
+        // console.log("Side nav this.state.filteredChannels", this.props.filteredChannels)
+      }
       if (this.props.user) {
         return (
           <div>
-            <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <ul className="navbar-nav navbar-sidenav " id="exampleAccordion">
+              <SearchBar />
+
               <li
                 className="nav-item"
                 data-toggle="tooltip"
                 data-placement="right"
+                id="side"
               >
                 <Link className="nav-link heading" to="/createChannel">
-                  <span className="nav-link-text mr-2">Channels</span>
-                  <FontAwesomeIcon icon={faPlusCircle} />
+                  <span id="sidecolor" className="nav-link-text mr-2">
+                    Create a channel
+                  </span>
+                  <FontAwesomeIcon id="sidecolor" icon={faPlusCircle} />
                 </Link>
               </li>
               {channelLinks}
@@ -68,7 +86,8 @@ class SideNav extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    channels: state.channels.channels
+    channels: state.rootChannels.channels,
+    filteredChannels: state.rootChannels.filteredChannels
   };
 };
 

@@ -1,10 +1,27 @@
 html {
   position: relative;
   min-height: 100%;
+  background-color: #473843;
 }
 
 body {
   overflow-x: hidden;
+  background-color: #473843;
+}
+
+#root,
+.all {
+  background-color: #473843;
+}
+
+#header {
+  background-color: #473843;
+  background-image: url("undraw_Group_chat_unwm.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom right;
+  background-size: 600px 500px;
+  height: 600px;
 }
 
 body.sticky-footer {
@@ -185,6 +202,7 @@ body.fixed-nav {
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
     padding: 1em;
   }
+
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
     padding-left: 0;
@@ -204,6 +222,7 @@ body.fixed-nav {
     > li {
     width: 250px;
   }
+
   #mainNav
     .navbar-collapse
     .navbar-sidenav
@@ -339,7 +358,6 @@ body.sidenav-toggled #mainNav.static-top #sidenavToggler i {
 
 .content-wrapper {
   overflow-x: hidden;
-  background: white;
 }
 
 @media (min-width: 992px) {
@@ -665,6 +683,10 @@ footer.sticky-footer {
   line-height: 55px;
 }
 
+.rounded-pill {
+  border-radius: 5rem;
+}
+
 @media (min-width: 992px) {
   footer.sticky-footer {
     width: calc(100% - 250px);
@@ -729,4 +751,84 @@ footer.sticky-footer {
   bottom: 51px;
   border-color: white;
   color: white;
+}
+
+#text {
+  position: relative;
+  bottom: 90px;
+  color: white;
+}
+
+#text2 {
+  position: relative;
+  bottom: 80px;
+  color: white;
+}
+
+#logout {
+  cursor: pointer;
+}
+
+.nav {
+  background-color: #473843;
+  color: white;
+}
+.nav:hover {
+  color: #cf55af;
+}
+
+#login {
+  background-color: #853b71;
+  border-color: wheat;
+  position: relative;
+  bottom: 100px;
+}
+#login:hover {
+  background-color: #b44195;
+}
+
+.create {
+  background-color: #473843;
+}
+
+#createbtn {
+  background-color: #853b71;
+  border-color: wheat;
+}
+
+#createbtn:hover {
+  background-color: #b44195;
+}
+
+#side {
+  position: relative;
+  bottom: 400px;
+  color: white;
+}
+
+#search {
+  position: relative;
+  top: 40px;
+}
+
+#sidecolor {
+  color: white;
+}
+
+#sidecolor:hover {
+  color: #e025ae;
+}
+
+#headerdiv {
+  background-color: transparent;
+}
+
+#loginbtn,
+#registerbtn {
+  background-color: #853b71;
+  border-color: wheat;
+}
+#loginbtn:hover,
+#registerbtn:hover {
+  background-color: #b44195;
 }

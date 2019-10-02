@@ -23,24 +23,7 @@ export const fetchChannelDetail = channelID => {
   };
 };
 
-export const fetchChannelDetailLatest = (channelID, latest) => {
-  return async dispatch => {
-    try {
-      const res = await axios.get(
-        `https://api-chatr.herokuapp.com/channels/${channelID}/${latest}/`
-      );
-      const channelDetail = res.data;
-      dispatch({
-        type: actionTypes.FETCH_CHANNEL_DETAIL,
-        payload: channelDetail
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-};
-
-export const sendMessage = (channelID, message, user) => {
+export const sendMessage = (channelID, message, user, resetForm) => {
   return async dispatch => {
     try {
       const res = await axios.post(
@@ -57,8 +40,47 @@ export const sendMessage = (channelID, message, user) => {
         type: actionTypes.SEND_MESSAGE,
         payload: messageObject
       });
+      resetForm();
     } catch (error) {
       console.error(error);
     }
   };
 };
+// export const filterChannelMessages = channelID => {
+//     return async dispatch => {
+//         try {
+//             const res = await axios.get(
+//                 `https://api-chatr.herokuapp.com/channels/${channelID}/`
+//             );
+//             const channelMessages = res.data;// need to specify that we want messages
+//             dispatch({
+//                 type: actionTypes.FILTER_MESSAGES,
+//                 payload: channelMessages
+//             });
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     };
+// };
+// export const postMessage = (message, channelID, user) => {
+//   message = {
+//     ...message,
+//     channel: channelID,
+//     user: user
+//   };
+//   return async dispatch => {
+//     try {
+//       const res = await axios.post(
+//         `https://api-chatr.herokuapp.com/channels/${channelID}/send/`,
+//         message
+//       );
+//       const newMessage = res.data;
+//       dispatch({
+//         type: actionTypes.FETCH_CHANNEL_DETAIL,
+//         payload: newMessage
+//       });
+//     } catch (error) {
+//       console.error(error.response.data);
+//     }
+//   };
+// };

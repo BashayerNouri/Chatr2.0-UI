@@ -1,10 +1,9 @@
 export { login, logout, signup, checkForExpiredToken } from "./authentication";
-export { fetchChannels, setChLoading } from "./channels";
 export {
-  fetchChannelDetail,
-  fetchChannelDetailLatest,
-  setLoading,
-  sendMessage
-} from "./channel";
-
+  fetchChannels,
+  postChannel,
+  filterChannels,
+  setChLoading
+} from "./channels";
+export { fetchChannelDetail, setLoading, sendMessage } from "./channel";
 export { setErrors, resetErrors } from "./errors";

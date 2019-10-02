@@ -6,13 +6,10 @@ import { connect } from "react-redux";
 import SideNav from "./SideNav";
 import AuthButton from "./AuthButton";
 
-const NavBar = (props) => {
+const NavBar = props => {
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-      id="mainNav"
-    >
-      <Link className="navbar-brand" to="/welcome">
+    <nav className="navbar navbar-expand-lg fixed-top nav" id="mainNav">
+      <Link className="navbar-brand nav" to="/welcome">
         Chatr2.0
       </Link>
       <button
@@ -27,10 +24,11 @@ const NavBar = (props) => {
         <span className="navbar-toggler-icon" />
       </button>
 
-      {!!props.user && <div className="collapse navbar-collapse" id="navbarResponsive">
-
-        <SideNav />
-      </div>}
+      {!!props.user && (
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <SideNav />
+        </div>
+      )}
       <AuthButton />
     </nav>
   );

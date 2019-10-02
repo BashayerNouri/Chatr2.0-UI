@@ -13,12 +13,14 @@ import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
 import LoginForm from "./components/LoginForm";
+import ChannelForm from "./components/ChannelForm";
 import SendMessageForm from "./components/MessageForm";
 
 class App extends Component {
   componentDidMount() {
     main();
     this.props.fetchChannels();
+    // this.props.fetchChannelDetail(this.props.match.params.channelID);
   }
 
   render() {
@@ -29,15 +31,13 @@ class App extends Component {
           <Route path="/welcome" component={Welcome} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={RegistrationForm} />
+          <Route path="/createChannel" component={ChannelForm} />
           <Route path="/private" component={SuperSecretPage} />
           <Route path="/channels/:channelID" component={SendMessageForm} />
-          {/* <Route
-            path="/channels/:channelID/?latest=<TIMESTAMP>"
-            component={SendMessageForm}
-          /> */}
+
           <Redirect to="/welcome" />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

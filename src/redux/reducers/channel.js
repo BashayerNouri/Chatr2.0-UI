@@ -3,6 +3,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   channel: [],
   loading: true
+
+  // filteredMessages: [],
 };
 
 const channelReducer = (state = initialState, action) => {
@@ -12,11 +14,6 @@ const channelReducer = (state = initialState, action) => {
         ...state,
         channel: action.payload,
         loading: false
-      };
-    case actionTypes.FETCH_CHANNEL_DETAIL_LATEST:
-      return {
-        ...state,
-        channel: action.payload
       };
     case actionTypes.SET_MESSAGES_LOADING:
       return {
@@ -28,6 +25,13 @@ const channelReducer = (state = initialState, action) => {
         ...state,
         channel: state.channel.concat(action.payload)
       };
+
+    // case actionTypes.POST_MESSAGE:
+    //   return {
+    //     ...state,
+    //     channel: state.channels.concat(action.payload)
+    //   };
+
     default:
       return state;
   }

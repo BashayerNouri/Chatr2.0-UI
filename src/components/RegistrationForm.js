@@ -21,17 +21,15 @@ class RegistationForm extends Component {
     e.preventDefault();
 
     this.props.signup(this.state, this.props.history);
-
-
   };
 
   handleUsernameError = () => {
     if (this.props.errors) {
       if (this.props.errors.username[0]) {
-        return this.props.errors.username[0]
+        return this.props.errors.username[0];
       }
     }
-  }
+  };
 
   // handlePasswordError = () => {
   //   if (this.props.errors) {
@@ -41,27 +39,19 @@ class RegistationForm extends Component {
   //   }
   // }
 
-
-
   render() {
     const type = this.props.match.url.substring(1);
-    console.log(this.props.errors)
+    console.log(this.props.errors);
 
-
-    if (this.props.user)
-      return <Redirect to="/" />
+    if (this.props.user) return <Redirect to="/" />;
 
     const errors = this.props.errors;
-
 
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
-          <h5 className="card-title mb-4">
-            Register an account
-          </h5>
+          <h5 className="card-title mb-4">Register an account</h5>
           <form onSubmit={this.submitHandler}>
-
             {!!errors.length && (
               <div className="alert alert-danger" role="alert">
                 {errors.map(error => (
@@ -79,9 +69,7 @@ class RegistationForm extends Component {
                 onChange={this.changeHandler}
               />
 
-
               {/* {this.props.errors ? this.props.errors.username[0] : ""} */}
-
             </div>
             <div className="form-group">
               <input
@@ -96,6 +84,7 @@ class RegistationForm extends Component {
               {/* {this.handlePasswordError()} */}
             </div>
             <input
+              id="registerbtn"
               className="btn btn-primary"
               type="submit"
               value={type.replace(/^\w/, c => c.toUpperCase())}
@@ -103,10 +92,7 @@ class RegistationForm extends Component {
           </form>
         </div>
         <div className="card-footer">
-          <Link
-            to="/login"
-            className="btn btn-small btn-link">
-
+          <Link to="/login" className="btn btn-small btn-link">
             Already have an account? Login
           </Link>
         </div>
@@ -119,16 +105,18 @@ const mapStateToProps = state => {
   return {
     errors: state.errors.errors,
     user: state.user
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    signup: (userData, history) => dispatch(actionCreators.signup(userData, history)),
-    resetErrors: () => dispatch(actionCreators.resetErrors())
-
-
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegistationForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    signup: (userData, history) =>
+      dispatch(actionCreators.signup(userData, history)),
+    resetErrors: () => dispatch(actionCreators.resetErrors())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegistationForm);
