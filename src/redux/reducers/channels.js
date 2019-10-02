@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  channels: []
+  channels: [],
+  loading: true
 };
 
 const channelsReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const channelsReducer = (state = initialState, action) => {
       return {
         ...state,
         channels: action.payload
+      };
+    case actionTypes.SET_CHANNELS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
 
     // case actionTypes.POST_AUTHOR:

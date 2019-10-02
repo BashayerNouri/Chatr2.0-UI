@@ -676,3 +676,57 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+.messages {
+  border-radius: 25px;
+  background: #435f7a;
+  padding: 15px;
+  width: 450px;
+  height: auto;
+  position: relative;
+  left: 250px;
+  color: white;
+}
+
+.container {
+  background: #e7edf3;
+}
+
+.input {
+  width: 800px;
+  height: 60px;
+  border-radius: 25px;
+  padding: 15px;
+  position: relative;
+  left: 60px;
+}
+
+.image {
+  border-radius: 50%;
+  width: 70px;
+  position: relative;
+  left: 170px;
+  top: 70px;
+}
+
+.timestamp {
+  position: relative;
+  left: 260px;
+  padding-bottom: 15px;
+}
+
+.username {
+  position: relative;
+  left: 190px;
+  top: 20px;
+}
+
+#send {
+  background: #435f7a;
+  padding: 7px 12px;
+  position: relative;
+  left: 1070px;
+  bottom: 51px;
+  border-color: white;
+  color: white;
+}

@@ -30,11 +30,11 @@ class App extends Component {
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={RegistrationForm} />
           <Route path="/private" component={SuperSecretPage} />
-          {/* <Route path="/channels/:channelID" component={SendMessageForm} /> */}
-          <Route
+          <Route path="/channels/:channelID" component={SendMessageForm} />
+          {/* <Route
             path="/channels/:channelID/?latest=<TIMESTAMP>"
             component={SendMessageForm}
-          />
+          /> */}
           <Redirect to="/welcome" />
         </Switch>
         <Footer />

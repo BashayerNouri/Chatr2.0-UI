@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  channel: []
+  channel: [],
+  loading: true
 };
 
 const channelReducer = (state = initialState, action) => {
@@ -9,12 +10,18 @@ const channelReducer = (state = initialState, action) => {
     case actionTypes.FETCH_CHANNEL_DETAIL:
       return {
         ...state,
-        channel: action.payload
+        channel: action.payload,
+        loading: false
       };
     case actionTypes.FETCH_CHANNEL_DETAIL_LATEST:
       return {
         ...state,
         channel: action.payload
+      };
+    case actionTypes.SET_MESSAGES_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     case actionTypes.SEND_MESSAGE:
       return {

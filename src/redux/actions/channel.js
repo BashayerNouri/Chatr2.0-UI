@@ -2,6 +2,10 @@ import * as actionTypes from "./actionTypes";
 import { resetErrors } from "./errors";
 import axios from "axios";
 
+export const setLoading = () => ({
+  type: actionTypes.SET_MESSAGES_LOADING
+});
+
 export const fetchChannelDetail = channelID => {
   return async dispatch => {
     try {

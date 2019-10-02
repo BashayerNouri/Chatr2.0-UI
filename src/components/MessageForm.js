@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import "../assets/css/main.css";
 import {
   fetchChannelDetail,
   fetchChannelDetailLatest,
-  sendMessage
+  sendMessage,
+  setLoading
 } from "../redux/actions";
 import Messages from "./Messages";
 import AddMessage from "./AddMessage";
+import Loading from "./Loading";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 class SendMessageForm extends Component {
   state = {
@@ -38,6 +43,7 @@ class SendMessageForm extends Component {
       if (
         this.props.match.params.channelID !== prevProps.match.params.channelID
       ) {
+        this.props.changeLoading();
         this.props.fetchChannelDetail(this.props.match.params.channelID);
       } else {
         clearInterval(this.interval);
@@ -68,6 +74,7 @@ class SendMessageForm extends Component {
   };
 
   render() {
+    if (this.props.loading) return <Loading />;
     if (!this.props.user) return <Redirect to="/login" />;
     const channel = this.props.channel;
     if (!!channel) {
@@ -77,6 +84,7 @@ class SendMessageForm extends Component {
       return (
         <div>
           {messages}
+
           <div style={{ textAlign: "center" }} className="mt-5 p-2">
             <form name="messageForm" onSubmit={this.submitHandler}>
               <div className="row" id="scroller">
@@ -84,17 +92,15 @@ class SendMessageForm extends Component {
                   <input
                     name="message"
                     value={this.state.message}
-                    placeholder="Type your message"
+                    placeholder="Write your message..."
                     onChange={this.changeHandler}
+                    className="input"
                   ></input>
                 </div>
-                <div className="col-2" style={{ padding: 0 }}>
-                  <input
-                    className="btn btn-warning"
-                    type="submit"
-                    value="Send"
-                  />
-                </div>
+
+                <button id="send" type="submit" value="Send">
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                </button>
               </div>
             </form>
           </div>
@@ -109,7 +115,8 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     channel: state.channel.channel,
-    currentChannel: state.channel.currentChannel
+    currentChannel: state.channel.currentChannel,
+    loading: state.channel.loading
   };
 };
 
@@ -119,7 +126,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(sendMessage(channelID, message, user)),
     fetchChannelDetail: channelID => dispatch(fetchChannelDetail(channelID)),
     fetchChannelDetailLatest: (channelID, latest) =>
-      dispatch(fetchChannelDetailLatest(channelID, latest))
+      dispatch(fetchChannelDetailLatest(channelID, latest)),
+    changeLoading: () => dispatch(setLoading())
   };
 };
 
