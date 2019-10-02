@@ -49,6 +49,7 @@ class LoginForm extends Component {
                 type="text"
                 placeholder="Username"
                 name="username"
+                id="input"
                 onChange={this.changeHandler}
               />
             </div>
@@ -58,12 +59,13 @@ class LoginForm extends Component {
                 type="password"
                 placeholder="Password"
                 name="password"
+                id="input"
                 onChange={this.changeHandler}
               />
             </div>
             <input
               id="loginbtn"
-              className="btn btn-primary"
+              className="btn btn-primary btn-block"
               type="submit"
               value={type.replace(/^\w/, c => c.toUpperCase())}
             />

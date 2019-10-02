@@ -66,6 +66,7 @@ class RegistationForm extends Component {
                 type="text"
                 placeholder="Username"
                 name="username"
+                id="input"
                 onChange={this.changeHandler}
               />
 
@@ -77,6 +78,7 @@ class RegistationForm extends Component {
                 type="password"
                 placeholder="Password"
                 name="password"
+                id="input"
                 onChange={this.changeHandler}
               />
 
@@ -85,7 +87,7 @@ class RegistationForm extends Component {
             </div>
             <input
               id="registerbtn"
-              className="btn btn-primary"
+              className="btn btn-primary btn-block"
               type="submit"
               value={type.replace(/^\w/, c => c.toUpperCase())}
             />

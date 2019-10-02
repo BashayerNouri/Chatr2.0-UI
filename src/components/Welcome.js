@@ -7,11 +7,11 @@ class Welcome extends Component {
     return (
       <header id="header" className="masthead d-flex">
         <div id="headerdiv" className="container text-center my-auto z-1">
-          <h1 id="text" className="mb-1">
-            WELCOME TO CHATR
-          </h1>
           {!this.props.user && (
             <>
+              <h1 id="text" className="mb-1">
+                WELCOME TO CHATR
+              </h1>
               <h3 className="mb-5">
                 <em id="text2">
                   You're gonna need to login to see the messages

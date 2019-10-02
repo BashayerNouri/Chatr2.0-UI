@@ -40,7 +40,7 @@ class SideNav extends React.Component {
       }
       if (this.props.user) {
         return (
-          <div>
+          <div id="sidebar">
             <ul className="navbar-nav navbar-sidenav " id="exampleAccordion">
               <SearchBar />
 
@@ -59,7 +59,7 @@ class SideNav extends React.Component {
               </li>
               {channelLinks}
             </ul>
-            <ul className="navbar-nav sidenav-toggler">
+            <ul id="scroll" className="navbar-nav sidenav-toggler">
               <li className="nav-item">
                 <span
                   className="nav-link text-center"

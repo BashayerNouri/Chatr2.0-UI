@@ -8,18 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 
 const ChannelNavLink = class Channel extends React.Component {
-  // state = {
-  //   channel: "",
-  //   changed: false
-  // }
-
-  // componentDidUpdate(prevState) {
-  //   if (this.state.channel !== prevState.channel) {
-  //     this.setState({ changed: true, channel: this.state.channel })
-
-  //   }
-  // }
-
   render() {
     const channel = this.props.channel;
     return (

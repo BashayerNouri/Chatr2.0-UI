@@ -5,7 +5,6 @@ import { fetchChannelDetail, sendMessage, setLoading } from "../redux/actions";
 import Messages from "./Messages";
 import SearchChannelBar from "./SearchChannelBar";
 import "../assets/css/main.css";
-import AddMessage from "./AddMessage";
 import Loading from "./Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
@@ -98,9 +97,6 @@ class SendMessageForm extends Component {
       const ChannelIDfromURL = this.props.match.params.channelID;
       console.log("ChannelIDfromURL", ChannelIDfromURL);
 
-      //get the background
-      // console.log("this.state.filteredChannels", this.state.filteredChannels)
-
       let findChannel = this.props.channels.find(
         channel => channel.id === +ChannelIDfromURL
       );
@@ -122,22 +118,8 @@ class SendMessageForm extends Component {
             background={background}
           />
         ));
-        return (
-          <div
-            style={{
-              backgroundImage: `url(${background})`
-            }}
-          >
-            {resultedMessages}
-          </div>
-        );
+        return { resultedMessages };
         {
-          /* <div style={{
-          
-          backgroundImage: `url(${background})`
-        }}>
-          {resultedMessages}
-        </div> */
         }
       } //search is not used
       else {
@@ -150,13 +132,11 @@ class SendMessageForm extends Component {
         ));
         return (
           <div
+            id="bgIMG"
             style={{
               backgroundImage: `url(${background})`
             }}
           >
-            {/* style={{
-          backgroundImage: `url(${background})`
-        }}> */}
             {messages}
           </div>
         );
@@ -170,27 +150,11 @@ class SendMessageForm extends Component {
 
     return (
       <>
-        {/* <div style={{
-          backgroundImage: `url(${this.props.channel.image_url
-            })`
-        }}> */}
+        <SearchChannelBar onChange={this.filterMessages} />
+        <div id="bubble" className=" ml-5 content col-10">
+          {this.myView()}
 
-        <div
-          style={{
-            backgroundImage: `url(${this.props.channel.image_url})`
-          }}
-        >
-          <SearchChannelBar onChange={this.filterMessages} />
-          <div className=" ml-5 content col-10">{this.myView()}</div>
-
-          {/* style={{
-backgroundImage: `url(${this.background})`
-}} */}
-          <div
-            id="message container"
-            style={{ textAlign: "center" }}
-            className="mt-5 p-2"
-          >
+          <div style={{ textAlign: "center" }} className="mt-5 p-2">
             <form name="messageForm" onSubmit={this.submitHandler}>
               <div className="row" id="scroller">
                 <div className="col-12">

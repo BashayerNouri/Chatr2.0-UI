@@ -1,21 +1,52 @@
 html {
   position: relative;
   min-height: 100%;
-  background-color: #473843;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(196, 10, 108, 1) 35%,
+    rgba(120, 1, 246, 1) 96%,
+    rgba(126, 3, 252, 1) 97%,
+    rgba(115, 0, 255, 1) 100%
+  );
 }
 
 body {
   overflow-x: hidden;
-  background-color: #473843;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(196, 10, 108, 1) 35%,
+    rgba(120, 1, 246, 1) 96%,
+    rgba(126, 3, 252, 1) 97%,
+    rgba(115, 0, 255, 1) 100%
+  );
 }
 
-#root,
-.all {
-  background-color: #473843;
+#root {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(196, 10, 108, 1) 35%,
+    rgba(120, 1, 246, 1) 96%,
+    rgba(126, 3, 252, 1) 97%,
+    rgba(115, 0, 255, 1) 100%
+  );
 }
 
 #header {
-  background-color: #473843;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(196, 10, 108, 1) 35%,
+    rgba(120, 1, 246, 1) 96%,
+    rgba(126, 3, 252, 1) 97%,
+    rgba(115, 0, 255, 1) 100%
+  );
   background-image: url("undraw_Group_chat_unwm.svg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -137,14 +168,9 @@ body.fixed-nav {
   min-width: 45px;
 }
 
-#mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after {
-  float: right;
-  width: auto;
-  content: "\f105";
-  border: none;
-  font-family: "FontAwesome";
+#input {
+  border-radius: 50px;
 }
-
 #mainNav
   .navbar-collapse
   .navbar-nav
@@ -195,6 +221,7 @@ body.fixed-nav {
     flex-direction: column;
     margin-top: 56px;
   }
+
   #mainNav .navbar-collapse .navbar-sidenav > .nav-item {
     width: 250px;
     padding: 0;
@@ -208,6 +235,7 @@ body.fixed-nav {
     padding-left: 0;
     list-style: none;
   }
+
   #mainNav
     .navbar-collapse
     .navbar-sidenav
@@ -700,18 +728,23 @@ footer.sticky-footer {
 }
 
 .messages {
-  border-radius: 25px;
-  background: #435f7a;
+  border-radius: 15px 50px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(196, 10, 108, 1) 35%,
+    rgba(120, 1, 246, 1) 96%,
+    rgba(126, 3, 252, 1) 97%,
+    rgba(115, 0, 255, 1) 100%
+  );
   padding: 15px;
   width: 450px;
   height: auto;
   position: relative;
-  left: 250px;
+  left: 190px;
+  margin: 20px;
   color: white;
-}
-
-.container {
-  background: #e7edf3;
 }
 
 .input {
@@ -725,22 +758,33 @@ footer.sticky-footer {
 
 .image {
   border-radius: 50%;
-  width: 70px;
+  width: 65px;
   position: relative;
-  left: 170px;
-  top: 70px;
+  left: 220px;
+  top: 20px;
+  border-color: green;
+  margin-bottom: 8px;
 }
 
 .timestamp {
   position: relative;
-  left: 260px;
-  padding-bottom: 15px;
+  left: 510px;
+  bottom: 47px;
+  color: white;
+  font-size: 13px;
 }
 
 .username {
   position: relative;
-  left: 190px;
+  left: 230px;
   top: 20px;
+  color: #fd1d1d;
+}
+
+#bgIMG {
+  border-radius: 50px;
+  background-color: rgb(2, 0, 36);
+  opacity: 0.9;
 }
 
 #send {
@@ -751,6 +795,20 @@ footer.sticky-footer {
   bottom: 51px;
   border-color: white;
   color: white;
+}
+
+#bubble {
+  position: relative;
+  left: 300px;
+  width: 850px;
+  border-radius: 50px;
+  opacity: 1;
+}
+
+#bubbles {
+  position: relative;
+  right: 150px;
+  opacity: 1;
 }
 
 #text {
@@ -770,7 +828,7 @@ footer.sticky-footer {
 }
 
 .nav {
-  background-color: #473843;
+  background-color: rgb(2, 0, 36);
   color: white;
 }
 .nav:hover {
@@ -778,13 +836,13 @@ footer.sticky-footer {
 }
 
 #login {
-  background-color: #853b71;
+  background-color: rgb(2, 0, 36);
   border-color: wheat;
   position: relative;
   bottom: 100px;
 }
 #login:hover {
-  background-color: #b44195;
+  background-color: #b62890;
 }
 
 .create {
@@ -819,16 +877,88 @@ footer.sticky-footer {
   color: #e025ae;
 }
 
+#sidecolor:active {
+  color: #cf55af;
+}
+
 #headerdiv {
   background-color: transparent;
 }
 
 #loginbtn,
 #registerbtn {
-  background-color: #853b71;
+  background-color: rgb(2, 0, 36);
   border-color: wheat;
 }
 #loginbtn:hover,
 #registerbtn:hover {
-  background-color: #b44195;
+  background-color: #b62890;
+}
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 0.5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
 }
